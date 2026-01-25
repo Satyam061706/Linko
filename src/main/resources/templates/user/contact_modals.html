@@ -1,0 +1,96 @@
+<div data-th-fragment="contact">
+    <!-- View Contact Modal -->
+    <div id="view_contact_modal" class="modal">
+        <div class="modal-overlay" onclick="closeContactModal()"></div>
+        
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-profile-section">
+                    <img id="contact_image" 
+                         class="modal-profile-img" 
+                         src="/images/default-user.png" 
+                         alt="Contact picture"
+                         onerror="this.src='/images/default-user.png'">
+                    <div class="modal-profile-info">
+                        <h3 id="contact_name" class="modal-name"></h3>
+                        <p id="contact_email" class="modal-email"></p>
+                        <p id="contact_phone" class="modal-phone"></p>
+                    </div>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closeContactModal()">
+                    <svg class="modal-close-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="contact-details-table">
+                    <table class="details-table">
+                        <tbody>
+                            <tr class="detail-row">
+                                <th class="detail-label">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                    </svg>
+                                </th>
+                                <td class="detail-value">
+                                    <span id="contact_address">No address provided</span>
+                                </td>
+                            </tr>
+                            <tr class="detail-row">
+                                <th class="detail-label">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                                    </svg>
+                                </th>
+                                <td class="detail-value">
+                                    <span id="contact_about">No description provided</span>
+                                </td>
+                            </tr>
+                            <tr class="detail-row">
+                                <th class="detail-label">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                                    </svg>
+                                </th>
+                                <td class="detail-value">
+                                    <span id="contact_favorite">Not marked as favorite</span>
+                                </td>
+                            </tr>
+                            <tr class="detail-row">
+                                <th class="detail-label">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 017.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </th>
+                                <td class="detail-value">
+                                    <a id="contact_website" target="_blank" class="detail-link">No website link</a>
+                                </td>
+                            </tr>
+                            <tr class="detail-row">
+                                <th class="detail-label">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM9 8.25a.75.75 0 00-.75.75v8.25c0 .414.336.75.75.75h.75a.75.75 0 00.75-.75V9a.75.75 0 00-.75-.75H9zm5.25 0a.75.75 0 00-.75.75v8.25c0 .414.336.75.75.75H15a.75.75 0 00.75-.75v-4.5a1.5 1.5 0 00-3 0v4.5c0 .414.336.75.75.75H15a.75.75 0 00.75-.75V9a.75.75 0 00-.75-.75h-.75zm-1.5-1.5a.75.75 0 00-.75.75v.75c0 .414.336.75.75.75H15a.75.75 0 00.75-.75V7.5a.75.75 0 00-.75-.75h-1.5z" clip-rule="evenodd" />
+                                    </svg>
+                                </th>
+                                <td class="detail-value">
+                                    <a id="contact_linkedIn" target="_blank" class="detail-link">No LinkedIn profile</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button onclick="closeContactModal()" type="button" class="btn-secondary">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

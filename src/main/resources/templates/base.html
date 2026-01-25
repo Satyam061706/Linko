@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content,title)" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-th-replace="${title}">Base Page</title>
+
+    <link rel="stylesheet" data-th-href="@{/output.css}" />
+    <link rel="stylesheet" data-th-href="@{/css/main.css}" />
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    <!-- THEME INIT -->
+    <script>
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            if (!savedTheme) localStorage.setItem("theme", "light");
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- if user is loggedIn :navbar -->
+    <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/user_navbar :: user-navbar}"></div>
+    </div>
+
+
+    <!-- if user is not loggedIn :navbar -->
+    <div th:unless="${loggedInUser}">
+        <div th:replace="~{navbar :: navbar}"></div>
+    </div>
+
+    <div class="theme-bg">
+        <section data-th-replace="${content}"></section>
+    </div>
+    <script data-th-src="@{'/js/admin.js'}"></script>
+    <script data-th-src="@{'/js/script.js'}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js"></script>
+    <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script data-th-src="@{'/js/contact.js'}"></script>
+    <script data-th-src="@{'/js/email.js'}"></script>
+</body>
+
+</html>

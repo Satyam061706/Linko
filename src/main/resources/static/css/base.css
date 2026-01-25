@@ -1,0 +1,17 @@
+/* Reset and base styles */
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  min-height: 100vh;
+  font-family: inherit;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Global focus styles */
+*:focus {
+  outline: none;
+}

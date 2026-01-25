@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>View Email - Linko</title>
+    <link rel="stylesheet" data-th-href="@{'/css/contacts.css'}">
+</head>
+
+<body>
+
+<!-- contacts_fragment.html - This contains only the #content area for insertion -->
+<div id="content">
+    <!-- user is logged in : sidebar -->
+    <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+    </div>
+
+    <div class="main-content pt-16" style="padding-top: 65px;" id="main-content">
+        <div class="email-view-container" data-th-object="${email}">
+            <!-- Email Header -->
+            <div class="email-header">
+                <div class="email-header-left">
+                    <h1 class="email-subject" data-th-text="*{subject}"></h1>
+                    <div class="email-meta">
+                        <!--                            <span class="email-sender">-->
+                        <!--&lt;!&ndash;                                <strong>SS</strong> Satyam Sharma&ndash;&gt;-->
+                        <!--                                From: <span data-th-text="*{name} + ' &lt;' + *{from} + '&gt;'"></span>-->
+                        <!--                            </span>-->
+                        <span class="email-to">From: me</span>
+                        <span class="email-to">To: <span data-th-text="*{to}"></span></span>
+                        <span class="email-date" data-th-text="*{createdAt}">Sat, 15 Nov, 2025 at 7:27 pm</span>
+                    </div>
+                </div>
+                <!--                    <div class="email-header-right">-->
+                <!--                        <button class="email-action-btn" title="Reply">-->
+                <!--                            <svg class="email-action-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"-->
+                <!--                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"-->
+                <!--                                stroke-linejoin="round">-->
+                <!--                                <path d="M9 10L4 15L9 20" />-->
+                <!--                                <path d="M20 4V11C20 12.6569 18.6569 14 17 14H4" />-->
+                <!--                            </svg>-->
+                <!--                        </button>-->
+                <!--                        <button class="email-action-btn" title="Forward">-->
+                <!--                            <svg class="email-action-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"-->
+                <!--                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"-->
+                <!--                                stroke-linejoin="round">-->
+                <!--                                <path d="M15 10L20 15L15 20" />-->
+                <!--                                <path d="M4 4V11C4 12.6569 5.34315 14 7 14H20" />-->
+                <!--                            </svg>-->
+                <!--                        </button>-->
+                <!--                        <button class="email-action-btn" title="Delete">-->
+                <!--                            <svg class="email-action-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"-->
+                <!--                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"-->
+                <!--                                stroke-linejoin="round">-->
+                <!--                                <path d="M3 6H5H21" />-->
+                <!--                                <path-->
+                <!--                                    d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" />-->
+                <!--                                <path d="M10 11V17" />-->
+                <!--                                <path d="M14 11V17" />-->
+                <!--                            </svg>-->
+                <!--                        </button>-->
+                <!--                        <button class="email-action-btn" title="Print">-->
+                <!--                            <svg class="email-action-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"-->
+                <!--                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"-->
+                <!--                                stroke-linejoin="round">-->
+                <!--                                <path d="M6 9V2H18V9" />-->
+                <!--                                <path-->
+                <!--                                    d="M6 18H4C2.89543 18 2 17.1046 2 16V11C2 9.89543 2.89543 9 4 9H20C21.1046 9 22 9.89543 22 11V16C22 17.1046 21.1046 18 20 18H18" />-->
+                <!--                                <path d="M18 14H6V22H18V14Z" />-->
+                <!--                            </svg>-->
+                <!--                        </button>-->
+                <!--                    </div>-->
+            </div>
+
+            <!-- Email Body -->
+            <div class="email-body">
+                <div class="email-content">
+                    <p style="white-space: pre-line;" data-th-text="*{content}"></p>
+                    <!-- Greeting -->
+                    <!--                        <div class="email-greeting">-->
+                    <!--                            <p>Dear Satyam,</p>-->
+                    <!--                        </div>-->
+
+                    <!--                        &lt;!&ndash; Main Content &ndash;&gt;-->
+                    <!--                        <div class="email-main-content">-->
+                    <!--                            <p>-->
+                    <!--                                This email is to formally acknowledge receipt of your resignation from your position as-->
+                    <!--                                <strong>Software Developer at Netlink Software Private Limited</strong>.-->
+                    <!--                                Your resignation has been accepted, and your last working day will be-->
+                    <!--                                <strong>November 22, 2026</strong>, as requested.-->
+                    <!--                            </p>-->
+
+                    <!--                            <p>-->
+                    <!--                                We would like to express our sincere appreciation for your contributions during your-->
+                    <!--                                tenure with us.-->
+                    <!--                                Your dedication, professionalism, and hard work have been greatly valued, and we are-->
+                    <!--                                confident-->
+                    <!--                                that you will continue to perform to your usual high standards throughout your notice-->
+                    <!--                                period.-->
+                    <!--                            </p>-->
+
+                    <!--                            <p>-->
+                    <!--                                Please ensure that all current assignments and handover activities are completed to-->
+                    <!--                                facilitate-->
+                    <!--                                a smooth transition. Should you have any questions or require assistance during this-->
+                    <!--                                period,-->
+                    <!--                                please do not hesitate to reach out to me or the HR team. We will also be happy to-->
+                    <!--                                provide a-->
+                    <!--                                reference for you in the future, upon request.-->
+                    <!--                            </p>-->
+                    <!--                        </div>-->
+
+                    <!--                        &lt;!&ndash; Closing &ndash;&gt;-->
+                    <!--                        <div class="email-closing">-->
+                    <!--                            <p>Best regards,</p>-->
+                    <!--                            <p class="email-signature">-->
+                    <!--                                <strong>SS</strong><br>-->
+                    <!--                                Satyam Sharma<br>-->
+                    <!--                                HR Department<br>-->
+                    <!--                                Netlink Software Private Limited-->
+                    <!--                            </p>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
+
+                <!-- Email Attachments (if any) -->
+                <div th:if="${email.picture != null}">
+                    <div class="email-attachments">
+                        <div class="attachments-header">
+                            <svg class="attachment-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
+                            </svg>
+                            <span class="attachments-title">Attachments (1)</span>
+                        </div>
+                        <div class="attachment-item">
+                            <div class="attachment-icon-container">
+                                <svg class="file-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="attachment-info">
+                                <span class="attachment-name">Resignation_Acknowledgment.pdf</span>
+                                <span class="attachment-size">245 KB</span>
+                            </div>
+                            <button class="attachment-download-btn" title="Download">
+                                <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Actions Footer -->
+                <div class="email-actions-footer">
+                    <button class="email-reply-btn">
+                        <svg class="reply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/>
+                        </svg>
+                        Reply
+                    </button>
+                    <button class="email-reply-all-btn">
+                        <svg class="reply-all-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+                        </svg>
+                        Reply All
+                    </button>
+                    <button class="email-forward-btn">
+                        <svg class="forward-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                        Forward
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include contact modal fragment -->
+    <!--    <div data-th-replace="~{user/contact_modals :: contact}"></div>-->
+
+    <!-- Email-specific JavaScript -->
+    <script data-th-src="@{'/js/email-view.js'}"></script>
+
+</body>
+
+</html>

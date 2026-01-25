@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
+<title>Linko - Smart Contact Manager</title>
+
+<body>
+
+    <div id="content">
+        <!-- Hero/Banner Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Welcome to Linko Manager</h1>
+                <p class="hero-subtitle">Manage all your contacts effortlessly and securely in one place.</p>
+                <div class="hero-buttons">
+                    <a href="/login" class="btn btn-primary btn-large">Get Started</a>
+                    <a href="#about" class="btn btn-secondary btn-large">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Linko</h2>
+                    <p class="section-subtitle">Revolutionizing contact management for the modern world</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Why Choose Linko?</h3>
+                        <p>Linko is a smart contact management solution designed to streamline how you organize, access,
+                            and interact with your contacts. We combine cutting-edge technology with intuitive design to
+                            provide the ultimate contact management experience.</p>
+
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <i class="fas fa-brain"></i>
+                                <h4>Smart Organization</h4>
+                                <p>AI-powered categorization and smart tags automatically organize your contacts.</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sync-alt"></i>
+                                <h4>Cross-Platform Sync</h4>
+                                <p>Seamlessly sync across all your devices - desktop, tablet, and mobile.</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Enterprise Security</h4>
+                                <p>Bank-level encryption and secure cloud storage for your valuable contacts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Linko Dashboard Preview">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="service" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Powerful Features</h2>
+                    <p class="section-subtitle">Everything you need for efficient contact management</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-address-book"></i>
+                        </div>
+                        <h3 class="feature-title">Easy Contact Management</h3>
+                        <p class="feature-description">Add, edit, and organize your contacts in a user-friendly
+                            interface with smart categorization.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="feature-title">Secure Storage</h3>
+                        <p class="feature-description">Your data is protected with top-level encryption and security
+                            measures.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="feature-title">24/7 Access</h3>
+                        <p class="feature-description">Access your contacts anytime, anywhere from any device.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="feature-title">Direct Email Access</h3>
+                        <p class="feature-description">Contact your connections anytime, anywhere from any device using
+                            Linko.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="feature-title">Analytics & Insights</h3>
+                        <p class="feature-description">Gain insights into your communication patterns and contact
+                            interactions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Cloud Backup</h3>
+                        <p class="feature-description">Automatic cloud backup ensures you never lose important contact
+                            information.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Users Say</h2>
+                    <p class="section-subtitle">Join thousands of satisfied users worldwide</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Linko has completely transformed how I manage my professional network. The smart tagging
+                                feature alone saved me hours of work!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>John Doe</h4>
+                                <span>Marketing Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"As a freelancer with hundreds of contacts, Linko's intuitive interface and powerful
+                                search make my workflow so much smoother."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Jane Smith</h4>
+                                <span>Freelance Designer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The security features give me peace of mind, and the cross-platform sync works
+                                flawlessly across all my devices."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <span>Tech Entrepreneur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Contact Management?</h2>
+                    <p class="cta-subtitle">Join thousands of professionals who trust Linko with their valuable
+                        connections</p>
+                    <div class="cta-buttons">
+                        <a href="/registor" class="btn btn-primary btn-large">Create Free Account</a>
+                        <a href="#contact" class="btn btn-secondary btn-large">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-subtitle">Have questions? We're here to help!</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>support@linko.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Visit Us</h3>
+                                <p>123 Tech Street, Silicon Valley, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Linko</h3>
+                        <p>Smart Contact Management for Professionals</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-column">
+                            <h4>Product</h4>
+                            <a href="#features">Features</a>
+                            <a href="#pricing">Pricing</a>
+                            <a href="#about">About</a>
+                        </div>
+                        <div class="link-column">
+                            <h4>Resources</h4>
+                            <a href="#">Blog</a>
+                            <a href="#">Documentation</a>
+                            <a href="#">Support</a>
+                        </div>
+                        <div class="link-column">
+                            <h4>Company</h4>
+                            <a href="#">Careers</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Connect With Us</h4>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Linko Contact Manager. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for theme toggle -->
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleSunIcon = document.getElementById('theme-toggle-sun-icon');
+        const themeToggleMoonIcon = document.getElementById('theme-toggle-moon-icon');
+        const mobileMenuButton = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu-container');
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const htmlElement = document.documentElement;
+                const isDark = htmlElement.classList.contains('dark');
+
+                if (isDark) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                    themeToggleSunIcon.classList.add('hidden');
+                    themeToggleMoonIcon.classList.remove('hidden');
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                    themeToggleSunIcon.classList.remove('hidden');
+                    themeToggleMoonIcon.classList.add('hidden');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        if (mobileMenuButton && navMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                document.body.classList.toggle('mobile-menu-open');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    document.body.classList.remove('mobile-menu-open');
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('mobile-menu-open');
+                    }
+                }
+            });
+        });
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const htmlElement = document.documentElement;
+
+            if (savedTheme === 'dark') {
+                htmlElement.classList.add('dark');
+                if (themeToggleSunIcon) themeToggleSunIcon.classList.remove('hidden');
+                if (themeToggleMoonIcon) themeToggleMoonIcon.classList.add('hidden');
+            } else {
+                htmlElement.classList.remove('dark');
+                if (themeToggleSunIcon) themeToggleSunIcon.classList.add('hidden');
+                if (themeToggleMoonIcon) themeToggleMoonIcon.classList.remove('hidden');
+                if (!savedTheme) localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

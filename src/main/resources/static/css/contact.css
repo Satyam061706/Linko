@@ -1,0 +1,766 @@
+/* ========== CONTACTS PAGE STYLES ========== */
+
+/* Main Content Layout */
+.main-content {
+    margin-left: 0;
+    padding: 1rem;
+    min-height: calc(100vh - 70px);
+    overflow-x: hidden;
+    /* Prevent horizontal scroll on body */
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 56px;
+        /* Sidebar width */
+        padding: 1.5rem;
+    }
+}
+
+/* Contacts Container */
+.contacts-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.contacts-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary, #111827);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contacts-title {
+        font-size: 1.875rem;
+        margin-top: 3.2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Controls Section */
+.contacts-controls {
+    margin-bottom: 1.5rem;
+    background: var(--card-bg, #ffffff);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+    .contacts-controls {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.controls-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .controls-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+}
+
+/* Search Form */
+.search-form {
+    flex: 1;
+    width: 100%;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .search-group {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+.form-select {
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 0.5rem;
+    background: var(--input-bg, #f9fafb);
+    color: var(--text-primary, #111827);
+    font-size: 0.875rem;
+    width: 100%;
+    min-height: 42px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+@media (min-width: 640px) {
+    .form-select {
+        min-width: 150px;
+        width: auto;
+    }
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    color: var(--text-tertiary, #9ca3af);
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 0.5rem;
+    background: var(--input-bg, #f9fafb);
+    color: var(--text-primary, #111827);
+    font-size: 0.875rem;
+    min-height: 42px;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--text-tertiary, #9ca3af);
+}
+
+/* Buttons */
+.search-btn {
+    background: var(--primary-color, #3b82f6);
+    color: white;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    height: 42px;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .search-btn {
+        width: auto;
+    }
+}
+
+.search-btn:hover {
+    background: var(--primary-hover, #2563eb);
+}
+
+.export-btn {
+    background: var(--success-color, #10b981);
+    color: white;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    height: 42px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .export-btn {
+        width: auto;
+    }
+}
+
+.export-btn:hover {
+    background: var(--success-hover, #059669);
+}
+
+/* Table Container */
+.contacts-table-container {
+    background: var(--card-bg, #ffffff);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    overflow-x: auto;
+    /* Enable horizontal scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+}
+
+/* Contacts Table - Responsive */
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    min-width: 800px;
+    /* Minimum width before scrolling kicks in */
+}
+
+.contacts-table thead {
+    background: var(--table-header-bg, #f9fafb);
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.contacts-table th {
+    padding: 0.875rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary, #111827);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-color, #e5e7eb);
+}
+
+.contacts-table tbody tr {
+    border-bottom: 1px solid var(--border-color, #f3f4f6);
+    transition: background-color 0.15s;
+}
+
+.contacts-table tbody tr:hover {
+    background: var(--hover-bg, #f9fafb);
+}
+
+.contacts-table td {
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* Prevent text wrapping in table cells */
+}
+
+@media (max-width: 768px) {
+    .contacts-table {
+        min-width: 700px;
+    }
+
+    .contacts-table th,
+    .contacts-table td {
+        padding: 0.75rem 1rem;
+        font-size: 0.8125rem;
+    }
+}
+
+/* Contact Cell */
+.contact-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 200px;
+}
+
+.contact-avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--avatar-border, #e5e7eb);
+    background: var(--avatar-bg, #f3f4f6);
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .contact-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.contacts-info {
+    flex: 1;
+    min-width: 0;
+    /* Allow text truncation */
+    overflow: hidden;
+}
+
+.contact-name {
+    font-weight: 500;
+    color: var(--text-primary, #111827);
+    margin-bottom: 0.125rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-email {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Phone */
+.contact-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary, #111827);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    min-width: 150px;
+}
+
+.phone-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--icon-color, #6b7280);
+    flex-shrink: 0;
+}
+
+/* Links */
+.contact-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 100px;
+    flex-wrap: nowrap;
+}
+
+/* FIXED: Favorite indicator - removed circle background, use SVG only */
+.favorite-indicator {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.favorite-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--favorite-color, #f59e0b);
+    fill: var(--favorite-color, #f59e0b);
+}
+
+.link-icon {
+    color: var(--icon-color, #6b7280);
+    transition: all 0.2s;
+    padding: 0.25rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.link-icon:hover {
+    color: var(--primary-color, #3b82f6);
+    background: var(--hover-bg, #f3f4f6);
+}
+
+.link-icon svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* SIMPLIFIED LinkedIn icon - easier to see at small size */
+.linkedin-svg {
+    width: 1rem;
+    height: 1rem;
+    color: currentColor;
+}
+
+/* Actions */
+.contact-actions {
+    display: flex;
+    gap: 0.5rem;
+    /* min-width: 150px; */
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.action-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--icon-color, #6b7280);
+    flex-shrink: 0;
+}
+
+.action-btn:hover {
+    background: var(--hover-bg, #f3f4f6);
+}
+
+/* FIXED: Action button icons - ensure they're visible */
+.action-btn .action-icon {
+    width: 1rem;
+    height: 1rem;
+    color: currentColor;
+    fill: currentColor;
+}
+
+.action-btn.delete {
+    color: var(--danger-color, #ef4444);
+}
+
+.action-btn.call {
+    color: #0fd662;
+}
+
+.action-btn.delete:hover {
+    color: white;
+    background: var(--danger-color, #ef4444);
+}
+
+.action-btn.call:hover {
+    color: white;
+    background: #0fd662;
+}
+
+.action-btn.edit {
+    color: var(--warning-color, #f59e0b);
+}
+
+.action-btn.edit:hover {
+    color: white;
+    background: var(--warning-color, #f59e0b);
+}
+
+.action-btn.view {
+    color: var(--info-color, #3b82f6);
+}
+
+.action-btn.view:hover {
+    color: white;
+    background: var(--info-color, #3b82f6);
+}
+
+/* Pagination */
+.pagination-container {
+    background: var(--card-bg, #ffffff);
+    padding: 1rem;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    overflow-x: auto;
+    /* Allow pagination scrolling on very small screens */
+}
+
+@media (min-width: 768px) {
+    .pagination-container {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    min-width: min-content;
+    /* Ensure it doesn't shrink too much */
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .pagination {
+        gap: 0.375rem;
+        flex-wrap: nowrap;
+    }
+}
+
+.pagination-item {
+    display: flex;
+}
+
+.pagination-link {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    color: var(--text-secondary, #6b7280);
+    border: 1px solid var(--border-color, #e5e7eb);
+    background: var(--card-bg, #ffffff);
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 0.875rem;
+    min-width: 2.25rem;
+    text-align: center;
+    display: block;
+    white-space: nowrap;
+}
+
+.pagination-link:hover {
+    background: var(--hover-bg, #f3f4f6);
+    color: var(--text-primary, #111827);
+    border-color: var(--border-hover, #d1d5db);
+}
+
+.pagination-link.active {
+    background: var(--primary-color, #3b82f6);
+    color: white;
+    border-color: var(--primary-color, #3b82f6);
+}
+
+.pagination-nav {
+    min-width: auto;
+    padding: 0.5rem 0.75rem;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary, #6b7280);
+    font-size: 1rem;
+    font-weight: 400;
+    background: var(--card-bg, #ffffff);
+    border-radius: 0.75rem;
+}
+
+/* Message Container */
+.message-container {
+    padding: 1rem;
+    background: var(--card-bg, #ffffff);
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+@media (min-width: 768px) {
+    .message-container {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ========== DARK MODE OVERRIDES ========== */
+.dark .contacts-title {
+    color: var(--text-primary-dark, #f9fafb);
+}
+
+.dark .contacts-controls,
+.dark .contacts-table-container,
+.dark .pagination-container {
+    background: var(--card-bg-dark, #1f2937);
+    border-color: var(--border-color-dark, #374151);
+}
+
+.dark .form-select,
+.dark .search-input {
+    background: var(--input-bg-dark, #111827);
+    border-color: var(--border-color-dark, #4b5563);
+    color: var(--text-primary-dark, #f9fafb);
+}
+
+.dark .form-select:focus,
+.dark .search-input:focus {
+    border-color: var(--primary-color-dark, #60a5fa);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.dark .contacts-table thead {
+    background: var(--table-header-bg-dark, #111827);
+}
+
+.dark .contacts-table th {
+    color: var(--text-primary-dark, #f9fafb);
+    border-bottom-color: var(--border-color-dark, #374151);
+}
+
+.dark .contacts-table tbody tr {
+    border-bottom-color: var(--border-color-dark, #374151);
+}
+
+.dark .contacts-table tbody tr:hover {
+    background: var(--hover-bg-dark, #374151);
+}
+
+.dark .contact-name {
+    color: var(--text-primary-dark, #f9fafb);
+}
+
+.dark .contact-email {
+    color: var(--text-secondary-dark, #d1d5db);
+}
+
+.dark .contact-phone {
+    color: var(--text-primary-dark, #f9fafb);
+}
+
+.dark .phone-icon {
+    color: var(--icon-color-dark, #9ca3af);
+}
+
+.dark .link-icon {
+    color: var(--icon-color-dark, #9ca3af);
+}
+
+.dark .link-icon:hover {
+    color: var(--primary-color-dark, #60a5fa);
+    background: var(--hover-bg-dark, #374151);
+}
+
+/* FIXED: Dark mode favorite icon */
+.dark .favorite-icon {
+    color: var(--favorite-color-dark, #fbbf24);
+    fill: var(--favorite-color-dark, #fbbf24);
+}
+
+/* FIXED: Dark mode action buttons */
+.dark .action-btn {
+    color: var(--icon-color-dark, #9ca3af);
+}
+
+.dark .action-btn.delete {
+    color: var(--danger-color-dark, #f87171);
+}
+
+.dark .action-btn.delete:hover {
+    color: white;
+    background: var(--danger-color-dark, #f87171);
+}
+
+.dark .action-btn.edit {
+    color: var(--warning-color-dark, #fbbf24);
+}
+
+.dark .action-btn.edit:hover {
+    color: white;
+    background: var(--warning-color-dark, #fbbf24);
+}
+
+.dark .action-btn.view {
+    color: var(--info-color-dark, #60a5fa);
+}
+
+.dark .action-btn.view:hover {
+    color: white;
+    background: var(--info-color-dark, #60a5fa);
+}
+
+.dark .pagination-link {
+    background: var(--card-bg-dark, #1f2937);
+    border-color: var(--border-color-dark, #4b5563);
+    color: var(--text-secondary-dark, #d1d5db);
+}
+
+.dark .pagination-link:hover {
+    background: var(--hover-bg-dark, #374151);
+    color: var(--text-primary-dark, #f9fafb);
+    border-color: var(--border-hover-dark, #6b7280);
+}
+
+.dark .pagination-link.active {
+    background: var(--primary-color-dark, #60a5fa);
+    color: white;
+    border-color: var(--primary-color-dark, #60a5fa);
+}
+
+.dark .no-results {
+    color: var(--text-secondary-dark, #d1d5db);
+    background: var(--card-bg-dark, #1f2937);
+}
+
+
+/* ========== SIMPLIFIED LINKEDIN ICON ========== */
+/* Add this if you want a simpler LinkedIn icon */
+.simple-linkedin-icon {
+    width: 1rem;
+    height: 1rem;
+    color: currentColor;
+}
+
+/* ========== MOBILE-SPECIFIC FIXES ========== */
+@media (max-width: 639px) {
+
+    /* Stack search form elements vertically */
+    .search-group {
+        flex-direction: column;
+    }
+
+    .form-select,
+    .search-input-wrapper,
+    .search-btn {
+        width: 100%;
+    }
+
+    /* Make action buttons larger for touch */
+    .action-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    /* Increase touch targets */
+    .link-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0.375rem;
+    }
+
+    .link-icon svg {
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+
+    /* Adjust table cell padding */
+    .contacts-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+    .contact-actions {
+        gap: 0.25rem;
+    }
+
+    .action-btn {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .pagination-link {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.8125rem;
+        min-width: 2rem;
+    }
+}

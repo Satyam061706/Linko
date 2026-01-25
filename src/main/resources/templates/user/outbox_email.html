@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
+
+<head>
+    <title>All Your Emails - Linko</title>
+    <link rel="stylesheet" data-th-href="@{'/css/contacts.css'}">
+</head>
+
+<body>
+
+    <!-- contacts_fragment.html - This contains only the #content area for insertion -->
+    <div id="content">
+        <!-- user is logged in : sidebar -->
+        <div th:if="${loggedInUser}">
+            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+
+        <div class="main-content" id="main-content">
+            <div class="contacts-container">
+                <h1 class="contacts-title">All Your Emails</h1>
+
+                <div class="contacts-controls">
+                    <div class="controls-wrapper">
+                        <form data-th-object="${contactSearchForm}" action=""
+                            data-th-action="@{'/user/contacts/search'}" class="search-form">
+                            <div class="search-group">
+                                <div>
+                                    <select data-th-field="*{field}" id="search-field" class="form-select">
+                                        <option value="" selected>Select Field</option>
+                                        <option value="name">Name</option>
+                                        <option value="phone">Phone</option>
+                                        <option value="email">Email</option>
+                                    </select>
+                                </div>
+
+                                <div class="search-input-wrapper">
+                                    <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <input data-th-field="*{value}" type="text" id="table-search-users"
+                                        class="search-input" placeholder="Search for contacts...">
+                                </div>
+
+                                <button type="submit" class="search-btn">
+                                    Search
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="contacts-table-container">
+                    <div data-th-replace="~{message :: message}"></div>
+
+                    <table data-th-if="${outboxEmails.totalElements>0}" class="contacts-table" id="contact-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Date</th>
+                                <th style="width: 30%;">Email</th>
+                                <th style="width: 20%;">Subject</th>
+                                <th style="width: 20%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-th-object="${c}" data-th-each="c : ${outboxEmails.getContent()}">
+
+                                <td>
+                                    <div class="contact-phone">
+                                        <!-- <span data-th-text="*{phoneNumber}"></span> -->
+                                        <spam>12-01-2025</spam>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="contact-cell">
+                                        <div class="contact-info">
+                                            <div class="contact-name" data-th-text="*{to}"></div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="contact-cell">
+                                        <div class="contact-info">
+                                            <div class="contact-name" data-th-text="*{subject}"></div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="contact-actions">
+                                        <a th:onclick="deleteEmail([[${c.id}]])" class="action-btn delete"
+                                            title="Delete">
+                                            <svg class="action-icon delete-icon" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
+                                        <a th:onclick="openEmailModal([[${c.id}]])" class="action-btn view"
+                                            title="View">
+                                            <svg class="action-icon view-icon" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor">
+                                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
+
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Pagination -->
+                    <div data-th-if="${outboxEmails.totalElements>0}" class="pagination-container">
+                        <div class="pagination-wrapper">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li data-th-unless="${outboxEmails.first}" class="pagination-item">
+                                        <a data-th-href="@{'/user/contacts/outbox-emails='+${pageSize}+'&page=' + ${outboxEmails.number-1}}"
+                                            class="pagination-link pagination-nav">
+                                            ← Previous
+                                        </a>
+                                    </li>
+
+                                    <li data-th-each="index : ${#numbers.sequence(0,outboxEmails.totalPages-1)}"
+                                        class="pagination-item">
+                                        <a data-th-href="@{'/user/contacts/outbox-emails='+${pageSize}+'&page='+${index}}"
+                                            data-th-classappend="${index==outboxEmails.number ? 'active' : ''}"
+                                            class="pagination-link">
+                                            <span data-th-text="${index+1}"></span>
+                                        </a>
+                                    </li>
+
+                                    <li data-th-unless="${outboxEmails.last}" class="pagination-item">
+                                        <a data-th-href="@{'/user/contacts/outbox-emails='+${pageSize}+'&page=' + ${outboxEmails.number+1}}"
+                                            class="pagination-link pagination-nav">
+                                            Next →
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- No results -->
+                    <h1 data-th-if="${outboxEmails.totalElements<=0}" class="no-results">
+                        No Email found
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include contact modal fragment -->
+    <div data-th-replace="~{user/contact_modals :: contact}"></div>
+
+
+</body>
+
+</html>

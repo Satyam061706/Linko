@@ -1,0 +1,57 @@
+
+/* ========== UTILITY CLASSES ========== */
+.hidden {
+  display: none;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.fixed {
+  position: fixed;
+  width: 100%;
+  /* margin-bottom: 10px; */
+  top: 0;
+  z-index: 50;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (min-width: 768px) {
+  .nav-container {
+    flex-wrap: nowrap;
+  }
+  
+  .nav-menu-container {
+    width: auto;
+    order: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-menu {
+    flex-direction: row;
+    padding: 0;
+    margin-top: 0;
+    gap: 2rem;
+    width: auto;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  #navbar-cta {
+    display: flex !important;
+    width: auto;
+  }
+  
+  .nav-right {
+    order: 2;
+  }
+}

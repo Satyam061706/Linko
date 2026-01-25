@@ -1,0 +1,137 @@
+/* ========== LIGHT THEME ========== */
+body {
+  background: #f5f7fa;
+  color: #0f172a;
+}
+
+nav {
+  background: #ffffff;
+  color: #0f172a;
+  border-bottom: 1px solid #d9e6f5;
+}
+
+/* Form container */
+.form-container {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #d9e6f5;
+  box-shadow: 0 10px 25px rgba(10,25,50,0.04);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+  width: 100%;
+  background: #f1f5fb;
+  border: 1px solid #cbd8ee;
+  color: #0f172a;
+  padding: .8rem 1rem;
+  border-radius: .75rem;
+  transition: box-shadow .14s ease, border-color .14s ease;
+}
+
+input:focus, select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  background: #f1f5fb;
+  border: 1px solid #cbd8ee;
+  color: #0f172a;
+  padding: .9rem 1rem;
+  border-radius: .85rem;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: box-shadow .14s ease, border-color .14s ease;
+}
+
+textarea::placeholder { 
+  color: #9fb6d8; 
+}
+
+textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 6px;
+  border: 1.5px solid #cbd8ee;
+  background: #fff;
+  position: relative;
+  transition: all .12s ease;
+}
+
+input[type="checkbox"]:checked {
+  background: linear-gradient(180deg,#60a5fa,#3b82f6);
+  border-color: #3b82f6;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-label { 
+  color: #1f3a66; 
+}
+
+
+
+
+
+:root {
+    /* Light theme variables */
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --success-color: #10b981;
+    --success-hover: #059669;
+    --danger-color: #ef4444;
+    --danger-bg: #fee2e2;
+    --warning-color: #f59e0b;
+    --warning-bg: #fef3c7;
+    --info-color: #3b82f6;
+    --info-bg: #dbeafe;
+    
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --input-bg: #f9fafb;
+    --table-header-bg: #f9fafb;
+    --hover-bg: #f3f4f6;
+    --border-color: #e5e7eb;
+    --border-hover: #d1d5db;
+    --avatar-bg: #f3f4f6;
+    --avatar-border: #e5e7eb;
+    
+    --icon-color: #6b7280;
+    --favorite-color: #f59e0b;
+    
+    --backdrop-bg: rgba(0, 0, 0, 0.5);
+}
+

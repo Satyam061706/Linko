@@ -1,0 +1,131 @@
+/* ========== DARK THEME ========== */
+.dark body {
+  background: #071023;
+  color: #e6eefb;
+}
+
+.dark nav {
+  background: #061025;
+  color: #e6eefb;
+  border-bottom: 1px solid #0d2a46;
+}
+
+/* Form container dark */
+.dark .form-container {
+  background: #081330;
+  color: #e6eefb;
+  border: 1px solid #0d2a46;
+  box-shadow: 0 12px 38px rgba(0,0,0,0.6);
+}
+
+/* Inputs dark */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="tel"],
+.dark select {
+  background: #071022;
+  border: 1px solid #0f2a44;
+  color: #e6eefb;
+}
+
+.dark input:focus, .dark select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.12);
+}
+
+/* Textarea dark */
+.dark textarea {
+  background: #071022;
+  border: 1px solid #0f2a44;
+  color: #e6eefb;
+}
+
+.dark textarea::placeholder { 
+  color: #9fb6d8; 
+}
+
+.dark textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.12);
+}
+
+/* Checkbox dark */
+.dark input[type="checkbox"] {
+  border: 1.5px solid #13324d;
+  background: #04101a;
+}
+
+.dark input[type="checkbox"]:checked {
+  background: linear-gradient(180deg,#60a5fa,#3b82f6);
+  border-color: #3b82f6;
+}
+
+.dark .checkbox-label { 
+  color: #cfe6ff; 
+}
+
+/* Buttons dark */
+.dark button, .dark .btn {
+  background: linear-gradient(135deg,#60a5fa,#1e3a8a);
+  color: #ffffff;
+}
+
+.dark button:hover { 
+  box-shadow: 0 10px 30px rgba(59,130,246,0.28); 
+}
+
+/* Dark mode button styles */
+.dark .btn {
+  background: linear-gradient(135deg,#60a5fa,#1e3a8a);
+}
+
+.dark .btn:hover { 
+  box-shadow: 0 10px 30px rgba(59,130,246,0.28); 
+}
+
+/* Dark mode form inputs */
+.dark .form-input,
+.dark .form-textarea {
+  background: #071022;
+  border: 1px solid #0f2a44;
+  color: #e6eefb;
+}
+
+
+
+
+
+
+:root {
+    /* Dark theme variables */
+    --primary-color-dark: #60a5fa;
+    --primary-hover-dark: #3b82f6;
+    --success-color-dark: #34d399;
+    --success-hover-dark: #10b981;
+    --danger-color-dark: #f87171;
+    --danger-bg-dark: #450a0a;
+    --warning-color-dark: #fbbf24;
+    --warning-bg-dark: #78350f;
+    --info-color-dark: #60a5fa;
+    --info-bg-dark: #1e3a8a;
+    
+    --text-primary-dark: #f9fafb;
+    --text-secondary-dark: #d1d5db;
+    --text-tertiary-dark: #9ca3af;
+    
+    --bg-color-dark: #111827;
+    --card-bg-dark: #1f2937;
+    --input-bg-dark: #111827;
+    --table-header-bg-dark: #111827;
+    --hover-bg-dark: #374151;
+    --border-color-dark: #374151;
+    --border-hover-dark: #6b7280;
+    --avatar-bg-dark: #374151;
+    --avatar-border-dark: #4b5563;
+    
+    --icon-color-dark: #9ca3af;
+    --favorite-color-dark: #fbbf24;
+    
+    --backdrop-bg-dark: rgba(0, 0, 0, 0.7);
+}

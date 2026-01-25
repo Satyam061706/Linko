@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
+
+<head>
+    <title>Update Contact</title>
+</head>
+
+<body>
+    <div id="content">
+        <!-- sidebar -->
+
+        <!-- user is logged in : sidebar -->
+
+        <div th:if="${loggedInUser}">
+            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+
+        <div class="linko-add-contact-wrapper">
+            <div class="linko-add-contact-container">
+                <div class="linko-add-contact-main">
+                    <!-- Form Card -->
+                    <div class="linko-contact-form-card">
+
+                        <!-- Messages -->
+                        <div data-th-replace="~{message::message}"></div>
+
+                        <h1 class="linko-form-title">Update Contact</h1>
+                        <p class="linko-form-description">
+                            This contact will be updated on cloud, you can direct email this client from Linko...
+                        </p>
+
+                        <form action="" class="linko-contact-form"
+                            data-th-action="@{'/user/contacts/update/' + ${contactId}}" data-th-object="${contactForm}"
+                            method="post" enctype="multipart/form-data">
+
+                            <!-- Name Field -->
+                            <div class="linko-form-group">
+                                <label for="linko-contact-name" class="linko-form-label">Contact Name</label>
+                                <div class="linko-input-with-icon">
+                                    <div class="linko-input-icon">
+                                        <!-- USER ICON SVG -->
+                                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4Z" />
+                                        </svg>
+                                    </div>
+                                    <input data-th-field="*{name}" type="text" id="linko-contact-name"
+                                        class="linko-form-input" placeholder="name" />
+                                </div>
+                                <p class="linko-error-message" data-th-if="${#fields.hasErrors('name')}"
+                                    data-th-errors="*{name}">
+                                    Invalid Name
+                                </p>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="linko-form-group">
+                                <label for="linko-contact-email" class="linko-form-label">Contact Email</label>
+                                <div class="linko-input-with-icon">
+                                    <div class="linko-input-icon">
+                                        <!-- EMAIL SVG -->
+                                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 5h18v14H3V5Zm0 0 9 7 9-7" />
+                                        </svg>
+                                    </div>
+                                    <input type="email" data-th-field="*{email}" id="linko-contact-email"
+                                        class="linko-form-input" placeholder="email" />
+                                </div>
+                                <p class="linko-error-message" data-th-if="${#fields.hasErrors('email')}"
+                                    data-th-errors="*{email}">
+                                    Invalid Email
+                                </p>
+                            </div>
+
+                            <!-- Phone Number Field -->
+                            <div class="linko-form-group">
+                                <label for="linko-contact-phone" class="linko-form-label">Contact Phone</label>
+                                <div class="linko-input-with-icon">
+                                    <div class="linko-input-icon">
+                                        <!-- PHONE SVG -->
+                                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2 5.5C2 4.12 3.12 3 4.5 3h2A2.5 2.5 0 0 1 9 5.5v1A2.5 2.5 0 0 1 6.5 9H6l1.5 3A11.5 11.5 0 0 0 12 17.5l3-1 1 1.5A2.5 2.5 0 0 1 15.5 21H14A12 12 0 0 1 2 9V5.5Z" />
+                                        </svg>
+                                    </div>
+                                    <input data-th-field="*{phoneNumber}" type="tel" id="linko-contact-phone"
+                                        class="linko-form-input" placeholder="phoneNumber" />
+                                </div>
+                                <p class="linko-error-message" data-th-if="${#fields.hasErrors('phoneNumber')}"
+                                    data-th-errors="*{phoneNumber}">
+                                    Invalid Phone Number
+                                </p>
+                            </div>
+
+                            <!-- Address Field -->
+                            <div class="linko-form-group">
+                                <label for="linko-contact-address" class="linko-form-label">Contact Address</label>
+                                <div class="linko-input-with-icon">
+                                    <div class="linko-input-icon">
+                                        <!-- LOCATION ICON SVG -->
+                                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 9s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" />
+                                        </svg>
+                                    </div>
+                                    <textarea data-th-field="*{address}" id="linko-contact-address" rows="3"
+                                        class="linko-form-textarea linko-textarea-with-icon"
+                                        placeholder="address"></textarea>
+                                </div>
+                                <p class="linko-error-message" data-th-if="${#fields.hasErrors('address')}"
+                                    data-th-errors="*{address}">
+                                    Invalid Address
+                                </p>
+                            </div>
+
+                            <!-- Description Field -->
+                            <div class="linko-form-group">
+                                <label for="linko-contact-description" class="linko-form-label">Contact
+                                    Description</label>
+                                <div class="linko-input-with-icon">
+                                    <div class="linko-input-icon">
+                                        <!-- DESCRIPTION ICON SVG -->
+                                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                                        </svg>
+                                    </div>
+                                    <textarea data-th-field="*{description}" id="linko-contact-description" rows="3"
+                                        class="linko-form-textarea linko-textarea-with-icon"
+                                        placeholder="description"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Social Links Section -->
+                            <div class="linko-form-two-col">
+
+                                <!-- Website -->
+                                <div class="linko-form-group">
+                                    <label for="linko-website-link" class="linko-form-label">Website Link</label>
+                                    <div class="linko-input-with-icon">
+                                        <div class="linko-input-icon">
+                                            <!-- EARTH/WEBSITE SVG -->
+                                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm0-18c-2 0-4 3-4 8s2 8 4 8 4-3 4-8-2-8-4-8Zm-8 8h16" />
+                                            </svg>
+                                        </div>
+                                        <input data-th-field="*{websiteLink}" id="linko-website-link"
+                                            class="linko-form-input" placeholder="websiteLink" />
+                                    </div>
+                                </div>
+
+                                <!-- LinkedIn -->
+                                <div class="linko-form-group">
+                                    <label for="linko-linkedin-link" class="linko-form-label">LinkedIn Profile</label>
+                                    <div class="linko-input-with-icon">
+                                        <div class="linko-input-icon">
+                                            <!-- LINKEDIN SVG -->
+                                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.08 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4V23h-4V8Zm7 0h3.8v2.1h.1c.5-.9 1.8-2.1 3.9-2.1 4.2 0 5 2.8 5 6.4V23h-4v-7.3c0-1.7 0-3.9-2.4-3.9-2.4 0-2.7 1.9-2.7 3.8V23h-4V8Z" />
+                                            </svg>
+                                        </div>
+                                        <input type="url" data-th-field="*{linkedInLink}" id="linko-linkedin-link"
+                                            class="linko-form-input" placeholder="linkedInLink" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Upload - Simple Design -->
+                            <div class="linko-form-group">
+                                <label for="linko-contact-image" class="linko-form-label">Contact Image</label>
+
+                                <div class="linko-image-upload-simple">
+                                    <div class="linko-file-upload-simple-wrapper">
+                                        <label for="linko-contact-image" class="linko-file-upload-simple-btn">
+                                            <i class="fas fa-cloud-upload-alt"></i> Choose File
+                                        </label>
+                                        <span class="linko-file-name" id="linko-file-name">No file chosen</span>
+                                    </div>
+
+                                    <div class="linko-image-preview-simple">
+                                        <img class="linko-image-preview" src="" id="linko-upload-image-preview"
+                                            alt="Contact image preview" />
+                                        <div class="linko-image-preview-placeholder" id="linko-image-placeholder">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                                <circle cx="9" cy="9" r="2" />
+                                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                            </svg>
+                                            <span>No image selected</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="linko-file-hint">SVG, PNG, JPG or GIF (max. 2MB)</p>
+
+                                    <input id="linko-contact-image" class="linko-file-input-hidden"
+                                        data-th-field="*{contactImage}" type="file" accept="image/*"
+                                        placeholder="contactImage" />
+                                </div>
+
+                                <p class="linko-error-message" data-th-if="${#fields.hasErrors('contactImage')}"
+                                    data-th-errors="*{contactImage}">
+                                    Invalid Image
+                                </p>
+                            </div>
+
+                            <!-- Favorite Checkbox -->
+                            <div class="linko-checkbox-group">
+                                <input data-th-field="*{favorite}" type="checkbox" id="linko-favorite-contact"
+                                    class="linko-form-checkbox" />
+                                <label for="linko-favorite-contact" class="linko-checkbox-label">
+                                    Is this contact your favorite one?
+                                </label>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="linko-form-buttons">
+                                <button type="submit" class="linko-btn linko-btn-primary">
+                                    <i class="fa-solid fa-plus"></i> Update Contact
+                                </button>
+                                <button type="button" class="linko-btn linko-btn-secondary">
+                                    <a th:href="@{/user/contacts}">
+                                        <i class="fa-solid fa-rotate-left"></i> Back
+                                    </a>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script data-th-src="@{'/js/admin.js'}"></script>
+    <script>
+        console.log("this is profile page");
+    </script>
+</body>
+
+</html>

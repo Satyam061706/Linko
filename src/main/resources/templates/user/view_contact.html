@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
+
+<head>
+    <title>View Contact - Linko</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="content">
+        <!-- User is logged in : sidebar -->
+        <div th:if="${loggedInUser}">
+            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+
+        <div class="main-content" id="main-content">
+            <div class="contacts-container">
+                <h1 class="contacts-title">View Contact Details</h1>
+
+                <div class="contact-view-card">
+                    <!-- Contact Header -->
+                    <div class="contact-view-header">
+                        <img th:src="${contact.picture}" class="contact-view-image" alt="Contact Image"
+                            onerror="this.src='/images/default-user.png'">
+                        <div class="contact-view-info">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                                <h2 class="contact-view-name" th:text="${contact.name}">Contact Name</h2>
+                                <span th:if="${contact.favorite}" class="contact-view-favorite">
+                                    <i class="fas fa-star"></i>
+                                </span>
+                            </div>
+                            <p class="contact-view-email" th:text="${contact.email}">satyamsharma061706@gmail.com</p>
+                            <p class="contact-view-phone" th:if="${contact.phoneNumber}"
+                                th:text="${contact.phoneNumber}">6263037167</p>
+                        </div>
+                    </div>
+
+                    <!-- Basic Information Section -->
+                    <div class="section-header">
+                        <i class="fas fa-id-card"></i>
+                        BASIC INFORMATION
+                    </div>
+
+                    <div class="contact-details-grid">
+                        <!-- Left Column -->
+                        <div>
+                            <!-- Phone -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-phone"></i> PHONE
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(contact.phoneNumber)} ? '' : 'empty'">
+                                    <span
+                                        th:text="${!#strings.isEmpty(contact.phoneNumber)} ? ${contact.phoneNumber} : 'Not provided'">6263037167</span>
+                                </div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-map-marker-alt"></i> ADDRESS
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(contact.address)} ? '' : 'empty'">
+                                    <span
+                                        th:text="${!#strings.isEmpty(contact.address)} ? ${contact.address} : 'Not provided'">bhopal</span>
+                                </div>
+                            </div>
+
+                            <!-- Website -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-globe"></i> WEBSITE
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(contact.websiteLink)} ? '' : 'empty'">
+                                    <span th:if="${!#strings.isEmpty(contact.websiteLink)}">
+                                        <a th:href="${contact.websiteLink}" target="_blank"
+                                            th:text="${contact.websiteLink}"></a>
+                                    </span>
+                                    <span th:unless="${!#strings.isEmpty(contact.websiteLink)}" class="empty-state">Not
+                                        provided</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div>
+                            <!-- LinkedIn -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fab fa-linkedin"></i> LINKEDIN
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(contact.linkedInLink)} ? '' : 'empty'">
+                                    <span th:if="${!#strings.isEmpty(contact.linkedInLink)}">
+                                        <a th:href="${contact.linkedInLink}" target="_blank"
+                                            th:text="${contact.linkedInLink}"></a>
+                                    </span>
+                                    <span th:unless="${!#strings.isEmpty(contact.linkedInLink)}" class="empty-state">Not
+                                        provided</span>
+                                </div>
+                            </div>
+
+                            <!-- Favorite Status -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-heart"></i> FAVORITE STATUS
+                                </div>
+                                <div class="detail-value">
+                                    <span th:if="${contact.favorite}" class="favorite-status favorite-true">
+                                        <i class="fas fa-star"></i> Marked as Favorite
+                                    </span>
+                                    <span th:unless="${contact.favorite}" class="favorite-status favorite-false">
+                                        <i class="far fa-star"></i> Not in Favorites
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Cloudinary ID -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-cloud"></i> CLOUDINARY ID
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(contact.cloudinaryImagePublicId)} ? '' : 'empty'">
+                                    <span
+                                        th:text="${!#strings.isEmpty(contact.cloudinaryImagePublicId)} ? ${contact.cloudinaryImagePublicId} : 'Not set'">905625f-0e0c-4421-81ca-f9b0a8ac6e07</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description Section -->
+                    <div class="section-header">
+                        <i class="fas fa-align-left"></i>
+                        DESCRIPTION
+                    </div>
+                    <div class="description-section">
+                        <div class="description-label">
+                            <i class="fas fa-file-alt"></i> Contact Description
+                        </div>
+                        <div class="description-content"
+                            th:classappend="${!#strings.isEmpty(contact.description)} ? '' : 'empty-state'">
+                            <span
+                                th:text="${!#strings.isEmpty(contact.description)} ? ${contact.description} : 'No description provided for this contact.'"></span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links Section -->
+                    <div th:if="${contact.links != null and !contact.links.isEmpty()}">
+                        <div class="section-header">
+                            <i class="fas fa-share-alt"></i>
+                            SOCIAL LINKS
+                        </div>
+                        <div class="social-links-container">
+                            <div th:each="link : ${contact.links}" class="social-link-item">
+                                <i class="fas fa-link social-link-icon"></i>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; color: #374151;" th:text="${link.platformName}"></div>
+                                    <div style="font-size: 0.9rem; color: #6b7280; word-break: break-all;"
+                                        th:text="${link.url}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a th:href="@{'/user/contacts/view/' + ${contact.id}}" class="btn-edit">
+                            <i class="fas fa-edit"></i> Edit Contact
+                        </a>
+                        <a th:href="@{/user/contacts}" class="btn-back">
+                            <i class="fas fa-arrow-left"></i> Back to Contacts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

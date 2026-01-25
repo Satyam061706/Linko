@@ -1,0 +1,391 @@
+/* * Form container  */
+.form-container {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 2rem;
+  margin-top: 80px;
+  border-radius: 1rem;
+  border: 1px solid #d9e6f5;
+  box-shadow: 0 10px 25px rgba(10,25,50,0.04);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+  width: 100%;
+  background: #f1f5fb;
+  border: 1px solid #cbd8ee;
+  color: #0f172a;
+  padding: .8rem 1rem;
+  border-radius: .75rem;
+  transition: box-shadow .14s ease, border-color .14s ease;
+}
+input:focus, select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  background: #f1f5fb; /* Changed from #ffffff to match other inputs */
+  border: 1px solid #cbd8ee;
+  color: #0f172a;
+  padding: .9rem 1rem;
+  border-radius: .85rem;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: box-shadow .14s ease, border-color .14s ease;
+}
+textarea::placeholder { color: #9fb6d8; }
+textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 6px;
+  border: 1.5px solid #cbd8ee;
+  background: #fff;
+  position: relative;
+  transition: all .12s ease;
+}
+input[type="checkbox"]:checked {
+  background: linear-gradient(180deg,#60a5fa,#3b82f6);
+  border-color: #3b82f6;
+}
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-label { color: #1f3a66; }
+
+/* Buttons */
+button, .btn {
+  background: linear-gradient(135deg,#3b82f6,#1e40af);
+  color: #ffffff;
+  padding: .9rem 1.3rem;
+  border-radius: .85rem;
+  font-weight: 700;
+  letter-spacing: .4px;
+  border: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+button:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(59,130,246,0.18); }
+
+/* ========== DARK ========== */
+.dark body {
+  background: #071023;
+  color: #e6eefb;
+}
+.dark nav {
+  background: #061025;
+  color: #e6eefb;
+  border-bottom: 1px solid #0d2a46;
+}
+
+/* Form container dark */
+.dark .form-container {
+  background: #081330;
+  color: #e6eefb;
+  border: 1px solid #0d2a46;
+  box-shadow: 0 12px 38px rgba(0,0,0,0.6);
+}
+
+/* Inputs dark */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="tel"],
+.dark select {
+  background: #071022;
+  border: 1px solid #0f2a44;
+  color: #e6eefb;
+}
+.dark input:focus, .dark select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.12);
+}
+
+/* Textarea dark */
+.dark textarea {
+  background: #071022; /* Changed from #04101a to match other inputs */
+  border: 1px solid #0f2a44;
+  color: #e6eefb;
+}
+.dark textarea::placeholder { color: #9fb6d8; }
+.dark textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.12);
+}
+
+/* Checkbox dark */
+.dark input[type="checkbox"] {
+  border: 1.5px solid #13324d;
+  background: #04101a;
+}
+.dark input[type="checkbox"]:checked {
+  background: linear-gradient(180deg,#60a5fa,#3b82f6);
+  border-color: #3b82f6;
+}
+.dark .checkbox-label { color: #cfe6ff; }
+
+/* Buttons dark */
+.dark button, .dark .btn {
+  background: linear-gradient(135deg,#60a5fa,#1e3a8a);
+  color: #ffffff;
+}
+.dark button:hover { box-shadow: 0 10px 30px rgba(59,130,246,0.28); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== FORM STYLES ========== */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.form-container {
+  max-width: 28rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.form-subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.form {
+  margin-top: 1.5rem;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-field {
+  margin-bottom: 0.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+/* Updated form input styles to match base input styles */
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem; /* Match base input padding */
+  border-radius: 0.75rem; /* Match base input border radius */
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  background: #f1f5fb; /* Match base input background */
+  border: 1px solid #cbd8ee; /* Match base input border */
+  color: #0f172a;
+  font-family: inherit;
+}
+
+.form-textarea {
+  min-height: 5rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Dark mode form inputs */
+.dark .form-input,
+.dark .form-textarea {
+  background: #071022; /* Match dark input background */
+  border: 1px solid #0f2a44; /* Match dark input border */
+  color: #e6eefb;
+}
+
+.terms-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 0 0.8rem 0;
+}
+
+.terms-checkbox {
+  margin-top: 0.125rem;
+}
+
+.terms-label {
+  font-size: 0.75rem;
+}
+
+.terms-link {
+  font-weight: 500;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+.divider {
+  position: relative;
+  margin: 1.5rem 0;
+}
+.divider-login {
+  position: relative;
+  margin: 0.8rem 0;
+}
+
+.divider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.divider-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding: 0 0.5rem;
+}
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.social-btn {
+  /* Base .btn styling */
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;     /* keep icon + text alignment */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Hover — exactly like .btn:hover */
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(59, 130, 246, 0.18);
+}
+
+/* Active (click) */
+.social-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Dark mode — same as .btn */
+.dark .social-btn {
+  background: linear-gradient(135deg, #60a5fa, #1e3a8a);
+}
+
+.dark .social-btn:hover {
+  box-shadow: 0 10px 30px rgba(59,130,246,0.28);
+}
+
+/* Icon */
+.social-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.twitter-icon {
+  color: #60a5fa;
+}
+
+.login-link-container {
+  text-align: center;
+}
+
+.login-link-text {
+  font-size: 0.75rem;
+}
+
+.login-link {
+  font-weight: 500;
+}
+
+.dark .validate{
+    color: red;
+    padding-left: 10px;
+}
+ .validate{
+    color: rgb(216, 3, 3);
+    padding-left: 10px;
+}

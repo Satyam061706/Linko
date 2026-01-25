@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
+<title data-th-text="${loggedInUser.name}+' | Linko'">Profile Page</title>
+
+<body>
+    <div id="content">
+        <!-- if user is loggedIn :sidebar -->
+        <div th:if="${loggedInUser}">
+            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+
+     
+        <div class="main-content" id="main-content">
+            <div class="contacts-container">
+                <h1 class="contacts-title">Welcome To Profile Page</h1>
+
+                <div class="contact-view-card">
+                    <!-- Contact Header -->
+                    <div class="contact-view-header">
+                        <img th:src="${loggedInUser.profilePicture}" class="contact-view-image" alt="Contact Image"
+                            onerror="this.src='/images/default-user.png'">
+                        <div class="contact-view-info">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                                <h2 class="contact-view-name" th:text="${loggedInUser.name}">Contact Name</h2>
+                            </div>
+                          
+                            <p class="contact-view-phone" th:if="${loggedInUser.about}" th:text="${loggedInUser.about}">
+                                6263037167</p>
+                        </div>
+                    </div>
+
+                    <!-- Basic Information Section -->
+                    <div class="section-header">
+                        <i class="fas fa-id-card"></i>
+                        BASIC INFORMATION
+                    </div>
+
+                    <div class="contact-details-grid">
+                        <!-- Left Column -->
+                        <div>
+                            <!-- Phone -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-phone"></i> PHONE
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(loggedInUser.phoneNumber)} ? '' : 'empty'">
+                                    <span
+                                        th:text="${!#strings.isEmpty(loggedInUser.phoneNumber)} ? ${loggedInUser.phoneNumber} : 'Not provided'">6263037167</span>
+                                </div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-map-marker-alt"></i> ADDRESS
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(loggedInUser.address)} ? '' : 'empty'">
+                                    <span
+                                        th:text="${!#strings.isEmpty(loggedInUser.address)} ? ${loggedInUser.address} : 'Not provided'">bhopal</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- Right Column -->
+                        <div>
+                            <!-- LinkedIn -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fab fa-linkedin"></i> Email
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(loggedInUser.email)} ? '' : 'empty'">
+                                    <span th:if="${!#strings.isEmpty(loggedInUser.email)}">
+                                        <a th:href="${loggedInUser.email}" target="_blank"
+                                            th:text="${loggedInUser.email}"></a>
+                                    </span>
+                                    <span th:unless="${!#strings.isEmpty(loggedInUser.email)}" class="empty-state">Not
+                                        provided</span>
+                                </div>
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div class="detail-group">
+                                <div class="detail-label">
+                                    <i class="fas fa-globe"></i> Phone Number
+                                </div>
+                                <div class="detail-value"
+                                    th:classappend="${!#strings.isEmpty(loggedInUser.phoneNumber)} ? '' : 'empty'">
+                                    <span th:if="${!#strings.isEmpty(loggedInUser.phoneNumber)}">
+                                        <a th:href="${loggedInUser.phoneNumber}" target="_blank"
+                                            th:text="${loggedInUser.phoneNumber}"></a>
+                                    </span>
+                                    <span th:unless="${!#strings.isEmpty(loggedInUser.phoneNumber)}"
+                                        class="empty-state">Not
+                                        provided</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a th:href="@{'/user/profile/update/' + ${loggedInUser.id}}" class="btn-edit">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </a>
+                        <!-- <a th:href="@{/user/contacts}" class="btn-back">
+                            <i class="fas fa-arrow-left"></i> Back to Contacts
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+
+    </div>
+    <!-- </div> -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" data-th-href="@{/output.css}" />
+    <link rel="stylesheet" data-th-href="@{/css/main.css}" />
+</head>
+
+<!-- THEME INIT -->
+<script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+        if (!savedTheme) localStorage.setItem("theme", "light");
+    }
+</script>
+
+<body class="min-h-screen bg-white dark:bg-[#061025]">
+
+    <!-- NAVBAR (fixed and outside the flex layout) -->
+    <nav class="theme-bg shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="nav-container">
+
+            <!-- Logo -->
+            <a data-th-href="@{'/home'}" class="logo-link">
+                <img id="navbar-logo" data-th-src="@{'/images/logo_png.png'}" class="logo" alt="Logo" />
+            </a>
+
+            <!-- MENU (center) -->
+            <div class="nav-menu-container">
+                <div id="navbar-cta">
+                    <ul class="nav-menu">
+                        <li><a data-th-href="@{'/home'}" class="nav-link">Home</a></li>
+                        <li><a data-th-href="@{'/about'}" class="nav-link">About</a></li>
+                        <li><a data-th-href="@{'/services'}" class="nav-link">Services</a></li>
+                        <li><a data-th-href="@{'/contact'}" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="nav-right">
+
+                <a data-th-href="@{'/login'}" class="btn">Login</a>
+                <a data-th-href="@{'/registor'}" class="btn">Sign Up</a>
+
+                <!-- Theme toggle -->
+                <button id="theme-toggle" class="theme-toggle-btn">
+                    <svg id="theme-toggle-sun-icon" class="theme-icon hidden" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75Z" />
+                    </svg>
+
+                    <svg id="theme-toggle-moon-icon" class="theme-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97...Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <!-- Mobile menu -->
+                <button data-collapse-toggle="navbar-cta" class="mobile-menu-btn">
+                    <svg class="menu-icon" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- PAGE LAYOUT — starts BELOW navbar -->
+    <div class="flex pt-20">
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar"
+               class="fixed lg:static top-0 left-0 h-full w-64 z-40
+                      transform -translate-x-full lg:translate-x-0
+                      transition-transform duration-300
+                      bg-white dark:bg-[#061025]
+                      border-r border-gray-200 dark:border-[#0d2a46]">
+
+            <!-- Brand -->
+            <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-200 dark:border-[#0d2a46]">
+                <img data-th-src="@{'/images/logo_png.png'}" class="h-8 w-8">
+                <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                    Linko Dashboard
+                </span>
+            </div>
+
+            <!-- Sidebar menu -->
+            <nav class="mt-4">
+                <ul class="space-y-1 px-2">
+
+                    <li>
+                        <a data-th-href="@{'/user/dashboard'}"
+                           class="sidebar-item">
+                           Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-th-href="@{'/user/profile'}"
+                           class="sidebar-item">
+                           Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-th-href="@{'/user/links'}"
+                           class="sidebar-item">
+                           My Links
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-th-href="@{'/user/settings'}"
+                           class="sidebar-item">
+                           Settings
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-th-href="@{'/do-logout'}"
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+                           text-red-600 dark:text-red-400
+                           hover:bg-red-50 dark:hover:bg-red-900/25">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-6">
+            this is main content
+        </main>
+
+    </div>
+
+    <script data-th-src="@{'/js/script.js'}"></script>
+</body>
+
+</html>
