@@ -24,9 +24,8 @@
             </button>
 
             <a class="flex flex-col items-center ps-2.5 mt-6">
-                <img
-                    data-th-src="@{${loggedInUser.profilePicture}}" onerror="this.src='/images/default-user.png'"
-                    class="h-16 me-3 sm:h-24 shadow-md rounded-full"/>
+                <img data-th-src="@{${loggedInUser.profilePicture}}" onerror="this.src='/images/default-user.png'"
+                    class="h-16 me-3 sm:h-24 shadow-md rounded-full" />
 
                 <span class="text-gray-500" data-th-text="${loggedInUser.name}">Unknown Person</span>
                 <span class="text-xl font-semibold">Welcome to
@@ -36,7 +35,7 @@
             <!-- Navigation menu -->
             <div class="sidebar-nav mt-[20px]">
                 <ul class="sidebar-menu">
-            
+
                     <li>
                         <a data-th-href="@{'/user/profile'}" class="sidebar-menu-item">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
